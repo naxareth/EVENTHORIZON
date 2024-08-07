@@ -47,73 +47,83 @@
       <section class="grid">
         <div class="events-section">
         <h2>UPCOMING EVENTS</h2>
-        
         </div>
     </section>
     <main class="grid">
-
-        <div class="sort-events"> 
-            <p>SORT BY:</p>
-            <a href="#" id="sortAsc">NEWEST DATE</a> 
-            <a href="#" id="sortDesc">OLDEST DATE</a> 
-        </div>
-        <div class="event-container">
-        <div class = "event-item">
         <div class="date">
-            <h2>FEBRUARY 14 2024</h2>
+            <h2>FEBRUARY <br>14<br> 2024</h2>
         </div>
         <img src="images/massblood.jpg" class="img-detail" alt="massblood">
         <div class="welcome">
             <h2>Mass Blood Donation</h2><p>PHINMA University of Pangasinan Gymnasium, Dagupan City, Pangasinan</p><br>
            
-                <a href="eventdetails1.php">View Event Details →</a> 
+                <a href="eventdetails1_beta1.html">View Event Details →</a> 
         </div>
-    </div>
-    <div class = "event-item">
         <div class="date">
-            <h2>FEBRUARY 26 2024</h2>
+            <h2>FEBRUARY <br>26<br> 2024</h2>
         </div>
         <img src="images/fdc99.jpg" class="img-detail" alt="fdc99">
         <div class="welcome">
             <h2>Cup of Joe and Sunkissed Lola concert to be held during PHINMA University of Pangasinan 99th FDC</h2><p>NRSCC, Lingayen, Pangasinan</p><br>
            
-                <a href="eventdetails2.php">View Event Details →</a>    
+                <a href="eventdetails2_beta1.html">View Event Details →</a>    
         </div>
-    </div>
-    <div class = "event-item">
         <div class="date">
-            <h2>JANUARY 13 2024</h2>
+            <h2>JANUARY <br>13<br> 2024</h2>
         </div>
         <img src="images/john_weak.jpg" class="img-detail" alt="Komsayahan">
         <div class="welcome">
             <h2>CITEFEST 2024 — Komsayahan Ctrl + Z Rewind ft. DEXTY MN from Team Payaman and John Weak</h2><p>PHINMA University of Pangasinan Main Campus, Dagupan City, Pangasinan</p><br>
            
-                <a href="eventdetails3.php">View Event Details →</a> 
+                <a href="eventdetails3_beta1.html">View Event Details →</a> 
         </div>
-    </div>
-    </div>
+        <?php
+        $conn= mysqli_connect('localhost','root','','events') or die("Connection failed: " .mysqli_connect_error());
+        $sql = "SELECT * FROM `event_add`";
+        $result = mysqli_query($conn,$sql);
+        if(mysqli_num_rows($result) > 0) {
+            while($row = mysqli_fetch_assoc($result)) {
+                echo "<div class='date'>";
+                echo "<h2>" . $row['event_date'] . "</h2>";
+                echo "</div>";
+                echo "<img src='" . $row['event_img'] . "' class='img-detail' alt='" . $row['event_name'] . "'>";
+                echo "<div class='welcome'>";
+                echo "<h2>" . $row['event_name'] . "</h2>";
+                echo "<p>" . $row['event_location'] . "</p>";
+                echo "<br>";
+                echo "<a href='eventdetails1_beta1.html'>View Event Details →</a>";
+                echo "</div>";
+            }
+        }
+        ?>
         <h2>RELATED ARTICLES</h2>
-     
+        
         <div class="card">
             <a href="article1.html"><img src="images/polsci.jpg"  alt="polsci"></a>
             <h3>PolSci Students Learns Legal Writing, Drafting of Legal Forms</h3>
-            <p>The Association of Political Science Students (APSS) at PHINMA University of Pangasinan held its second Paralegal Training on September 29, 2022, focusing on legal writing and drafting of legal forms. The training aimed to prepare Political Science students, particularly those aspiring to pursue law, with essential skills for the legal profession. Led by Atty. Danielle D. Bunquin, an alumna and litigation lawyer, the event included discussions on legal writing and workshops where participants practiced drafting demand letters. (click on the article to read more) </p>
-
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti natus laboriosam error molestiae quis animi corporis quae, hic culpa provident doloribus enim repellendus dolorum, ab sed veritatis, eum quaerat magnam.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolore odit itaque magni autem fuga, repellat corporis, incidunt modi delectus soluta reprehenderit illum architecto, assumenda veritatis esse officiis recusandae aut!</p>
         </div>
       
         <div class="card">
             <a href="article2.html"><img src="images/cma1.jpg"  alt="cma"></a>
             <h3>CMA Palakasan Returns Strongee Than Ever as Brightest Stars Collide</h3>
-            <p>The College of Management and Accountancy (CMA) organized the CMA Palakasan, themed "Collision of Stars," featuring competitions and activities from October 6-8, 2022. Five teams represented different stars, engaging in various contests including digital art, quiz bees, and e-sports tournaments. JMA emerged as the Overall Champion, with ISHTM's Anton Macapallag and Quennie Pearl Cubol winning Mr. and Ms. CMA Icons 2022. The event showcased teamwork, talent, and unity within the CMA community, setting a tone for future successes. (click on the article to read more)</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti natus laboriosam error molestiae quis animi corporis quae, hic culpa provident doloribus enim repellendus dolorum, ab sed veritatis, eum quaerat magnam.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolore odit itaque magni autem fuga, repellat corporis, incidunt modi delectus soluta reprehenderit illum architecto, assumenda veritatis esse officiis recusandae aut!</p>
         </div>
         
         <div class="card">
             <a href="article3.html"><img src="images/govern.jpg"  alt="govern"></a>
             <h3>Good Governance Caravan Underscores Importance of Youth Empowerment</h3>
-            <p>
-                The Kaya Natin! Movement organized a seminar-workshop titled "Juan for Good Governance Caravan" at PHINMA-UPang's Banquet Hall on September 19, 2022. Led by Malabon City Mayor Antolin Oreta III and Alaminos City Councilor Carol Dizon-Sison, the event aimed to empower young leaders in championing good governance. Discussions focused on youth empowerment projects and the importance of community engagement. Attendees participated in workshops to express their visions for the future of the Philippines. The caravan intends to spread the organization's goals to more cities and provinces. (click on the article to read more)</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti natus laboriosam error molestiae quis animi corporis quae, hic culpa provident doloribus enim repellendus dolorum, ab sed veritatis, eum quaerat magnam.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolore odit itaque magni autem fuga, repellat corporis, incidunt modi delectus soluta reprehenderit illum architecto, assumenda veritatis esse officiis recusandae aut!</p>
         </div>
+        <!--then fetch and display the infos from database to here-->
+        
     </main>
+
+    
+
 
 <!--FOOTER  aaaaaaaaa-->
 
@@ -121,10 +131,10 @@
 <footer class="grid">
     <h1>© NEXUS COLLECTIVE 2024, ALL RIGHTS RESERVED</h1>
     <nav>
-        <a href="eventmain_beta1.html" class="foot-link">HOME</a></li>
-        <a href="aboutus.html"  class="foot-link">ABOUT</a></li>
-        <a href="resources.html" class="foot-link">RESOURCES</a></li>
-        <a href="contacts.html" class="foot-link">CONTACTS</a></li>
+        <a href="" class="foot-link">HOME</a></li>
+        <a href="" class="foot-link">ABOUT</a></li>
+        <a href="" class="foot-link">RESOURCES</a></li>
+        <a href="" class="foot-link">CONTACTS</a></li>
         
     </nav>
 </footer>
@@ -139,39 +149,6 @@
           $(".navbar").toggleClass("scroll", $(this).scrollTop() > $(".navbar").height());
         });
       </script>
-          <script src="eventsorting.js"></script>
-
-          <script>
-          const eventContainer = document.querySelector('.event-container');
-  const eventItems = Array.from(eventContainer.children);
-  const sortAscButton = document.getElementById('sortAsc');
-  const sortDescButton = document.getElementById('sortDesc');
-
-  sortAscButton.addEventListener('click', () => {
-    eventItems.sort((a, b) => {
-      const dateA = a.querySelector('.date h2').textContent;
-      const dateB = b.querySelector('.date h2').textContent;
-      return dateA.localeCompare(dateB);
-    });
-    eventContainer.innerHTML = ''; // clear the container
-    eventItems.forEach((item) => {
-      eventContainer.appendChild(item); // re-append the items in the sorted order
-    });
-  });
-
-  sortDescButton.addEventListener('click', () => {
-    eventItems.sort((a, b) => {
-      const dateA = a.querySelector('.date h2').textContent;
-      const dateB = b.querySelector('.date h2').textContent;
-      return dateB.localeCompare(dateA);
-    });
-    eventContainer.innerHTML = ''; // clear the container
-    eventItems.forEach((item) => {
-      eventContainer.appendChild(item); // re-append the items in the sorted order
-    });
-  });
-          </script>
-
       </div>
   </body>
 </html>

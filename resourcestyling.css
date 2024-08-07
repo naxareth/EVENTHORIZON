@@ -11,7 +11,7 @@ body {
   font-family: "Kantumruy+Pro", sans-serif;
   /*background-image: linear-gradient(180deg, rgb(255, 255, 255), rgb(11, 28, 0));
   */
-  background-color: #ffffff;
+ 
 }
 
 .grid {
@@ -23,7 +23,7 @@ body {
 .wrapper {
   max-width: 1200px;
   margin: 0 auto;
-  
+  background-image: linear-gradient(180deg, rgb(242, 255, 237), rgb(199, 227, 189));
 
 }
 
@@ -113,8 +113,15 @@ body {
     background-color: #223e29;
     box-shadow: 8px 7px 8px black;
   }
+  .faqs {
+    margin-top: 100px;
+    grid-column: 2/span 10;
+  }
 
   .faq-container {
+    justify-content: flex-start;
+    position: relative;
+    right: 150px;
     width: 147%;
     max-width: 700px;
     margin: auto;
@@ -122,11 +129,15 @@ body {
 }
 
 .faq-question {
+  position: relative;
+  border-radius: 6px;
+  top: 10px;
     font-size: 20px;
     margin: 0;
     padding: 10px;
     cursor: pointer;
-    border-bottom: 3px solid #585656;
+    border-bottom: 1px solid;
+    background-image: linear-gradient(180deg, rgb(242, 255, 237), rgb(199, 227, 189));
 }
 
 .faq-answer {
@@ -140,40 +151,20 @@ body {
     display: block;
 }
 
+.resources {
+  margin-top: 100px;
+  grid-column: 2/span 10;
+  margin-bottom: 100px;
+}
 .res-title {
-  display: grid;
-  grid-template-columns: 33.3%;
-  max-width: 960px;
-  margin: 0;
-  margin-left: 90px;
-  padding-top: 20px;
-  color: #f3e768;
-  border-radius: 6px;
+  justify-content: flex-start;
+  position: relative;
+  width: 147%;
+  margin-bottom: 20px;
+  font-family: "Kantumruy+Pro", sans-serif;
 }
 
-.res-title h1 {
-  padding-top: 16px;
-  height: 50px;
-  width: 270px;
-  font-size: 35px;
-  text-align: center;
-  margin-bottom: 0;
-  background-color: #223e29;
-  box-shadow: 8px 15px 8px black;
-  border-top: 6px;
-}
 
-.res-title span {
-  padding-top: 1px;
-  height: 60px;
-  width: 270px;
-  font-size: 35px;
-  text-align: center;
-  margin-bottom: 0;
-  background-color: #223e29;
-  box-shadow: 8px 9px 8px black;
-  border-bottom: 6px;
-}
 
   .event{
     margin:0px;
@@ -182,37 +173,19 @@ body {
   
   .event-content {
     cursor: text;
-    display: grid;
-    grid-template-columns: 66.7%;
-    max-width: 800px;
     background-image: linear-gradient(180deg, rgb(242, 255, 237), rgb(199, 227, 189)) !important;
-    align-content: center;
-    border-radius: 20px;
-    margin-top: 0px !important;
-    margin-left: 400px !important;
+    border-bottom: 1px solid;
+    border-radius: 6px;
     margin-right: 0px;
     padding-top: 15px;
     padding-left: 15px;
     padding-bottom: 10px;
-    position: relative;
-    top: -90px;
   }
   
   .event-content h4 {
     font-weight: bold;
     font-size: 20px;
     margin-bottom: 5px;
-  }
-
-  .event img{
-    transition: 0.6s;;
-  }
-  .event img:hover{
-    transform:scale(1.1) ;
-    cursor: pointer;
-  }
-  .event .col-sm-5{
-    margin-bottom: 200px !important;
   }
 
   footer{
@@ -256,3 +229,42 @@ body {
     text-shadow: -2px -2px 0 #062600, 2px -2px 0 #062600, -2px 2px 0 #062600, 2px 2px 0 #062600;
   }
   
+  @media screen and (max-width: 960px) {
+    .navbar-brand {
+      position: relative;
+      font-size: 100%;
+      right: 20px;
+    }
+    .navbar-brand span {
+      position: relative;
+      font-size: 100%;
+    }
+    .navbar-nav {
+      position: relative;
+      padding-right: 0;
+      display: flex;
+      justify-content: center;
+    }
+    .navbar-nav .nav-item {
+      font-size: 100%;
+      position: relative;
+      left: 170px;
+    }
+    .faqs {
+      margin-top: 300px;
+    }
+    .faq-container {
+      position: relative;
+      right: 0px;
+      width: 147%;
+      margin: auto;
+      font-family: "Kantumruy+Pro", sans-serif;
+    }
+    footer h1 {
+      font-size: 80%;
+    }
+    footer .foot-link{
+      grid-column: 2 / span 10;
+      font-size: 80%;
+    }
+  }

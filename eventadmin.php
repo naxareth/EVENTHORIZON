@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="eventdetailstyling.css">
+    <link rel="stylesheet" href="adminstyle.css">
 
     <title>document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,14 +29,42 @@
       </nav>
 
       <div class="header">
-        <div class="img-parent">
-            <div class="img">
-                <img src="images/massblood.jpg" alt="">
-            </div>
-            <div class="img-overlay"></div>
-        </div>
+       
 
-   
+        <section class="grid">
+          <div class="add-section">
+            
+            <h1>ADD EVENTS</h1>
+            <form action="connect.php" method="POST">
+      <label for="event_date">Event Date:</label>
+      <input type="date" id="event_date" name="event_date" required>
+      <br>
+      <br>
+      <label for="event_img">Event Image:</label>
+      <input type="file" id="event_img" name="event_img" required>
+      <br>
+      <br>
+      <label for="event_name">Event Name:</label>
+      <input type="text" id="event_name" name="event_name" required>
+      <br>
+      <br>
+      <label for="event_location">Event Location:</label>
+      <input type="text" id="event_location" name="event_location" required>
+      <br>
+      <br>
+      <input type="submit" value="Add Event" name="submit">
+    </form>
+      
+          
+      
+          </div>
+          </section>
+      
+        
+      
+
+
+      </div>
 
      
 

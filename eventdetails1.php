@@ -1,3 +1,17 @@
+<?php
+$conn = mysqli_connect("localhost", "root", "", "data");
+
+if(isset($_POST["submit"])){
+  $name = $_POST["name"];
+  $comment = $_POST["comment"];
+  $date = date('F d Y, h:i:s A');
+  $reply_id = $_POST["reply_id"];
+
+  $query = "INSERT INTO tb_data VALUES('', '$name', '$comment', '$date', '$reply_id')";
+  mysqli_query($conn, $query);
+}
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,7 +21,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="eventstyling2.css">
+    <link rel="stylesheet" href="eventdetailstyling.css">
 
     <title>document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,67 +45,99 @@
       <div class="header">
         <div class="img-parent">
             <div class="img">
-                <img src="images/upang.png" alt="">
+                <img src="images/massblood.jpg" alt="">
             </div>
             <div class="img-overlay"></div>
         </div>
+
         <div class="img-content">
-            <h2>E V E N T S</h2>
-            <span>Get acquainted with the upcoming events that you can attend, plan,<br>
-                and share with others.</span>
+          <h2>MASS BLOOD DONATION</h2>
+          <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci perferendis fuga voluptate, velit sint quos deserunt? Nulla suscipit fugiat doloribus exercitationem, consequuntur, neque facilis aut quam, architecto possimus molestiae explicabo!<br>
+             </span>
         </div>
+
+        <section class="grid">
+          <div class="countdown-section">
+            
+            <h1>EVENT COUNTDOWN</h1>
+      
+            <div id="countdown" class="countdown">
+      
+            <div class="time">
+              <h2 id="days">00</h2>
+              <small>DAYS</small>
+            </div>
+      
+            <div class="time">
+              <h2 id="hours">00</h2>
+              <small>HOURS</small>
+            </div>
+      
+            <div class="time">
+              <h2 id="minutes">00</h2>
+              <small>MINUTES</small>
+            </div>
+      
+            <div class="time">
+              <h2 id="seconds">00</h2>
+              <small>SECONDS</small>
+            </div>
+      
+          </div>
+          </section>
+      
+        
+      
+
+
       </div>
+
+     
 
       <!-- EVENT SECTION-->
 
       <section class="grid">
         <div class="events-section">
-        <h2>UPCOMING EVENTS</h2>
-        
+        <h2></h2>
         </div>
     </section>
-    <main class="grid">
 
-        <div class="sort-events"> 
-            <p>SORT BY:</p>
-            <a href="#" id="sortAsc">NEWEST DATE</a> 
-            <a href="#" id="sortDesc">OLDEST DATE</a> 
-        </div>
-        <div class="event-container">
-        <div class = "event-item">
+    
+   
+    <main class="grid">
+        
+      <img src="images/massblood.jpg" class="img-detail" alt="massblood">
+      <div class="welcome">
+          <h2>Mass Blood Donation</h2>PHINMA University of Pangasinan Gymnasium, Dagupan City, Pangasinan</h2><br>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, quas harum. Quos suscipit perspiciatis corporis odit, commodi voluptatem nam magni harum distinctio, architecto necessitatibus similique, quam sapiente rem animi consectetur.</p>
+      </div>
         <div class="date">
-            <h2>FEBRUARY 14 2024</h2>
-        </div>
-        <img src="images/massblood.jpg" class="img-detail" alt="massblood">
-        <div class="welcome">
-            <h2>Mass Blood Donation</h2><p>PHINMA University of Pangasinan Gymnasium, Dagupan City, Pangasinan</p><br>
-           
-                <a href="eventdetails1.php">View Event Details →</a> 
-        </div>
+          <h2>EVENT STARTS AT 8:00AM</h2>
+      </div>
+    <div class="commentsection">
+      <?php
+      $datas = mysqli_query($conn, "SELECT * FROM tb_data WHERE reply_id = 0"); // only select comment and not select reply
+      foreach($datas as $data) {
+        require 'comment.php';
+      }
+      ?>
+      <form action = "" method = "post">
+        <h3 id = "title">Leave a Comment</h3>
+        <input type="hidden" name="reply_id" id="reply_id">
+        <input type="text" name="name" placeholder="Your name" required>
+        <textarea name="comment" placeholder="Your comment" required></textarea>
+        <button class = "submit" type="submit" name="submit">Submit</button>
+      </form>
     </div>
-    <div class = "event-item">
-        <div class="date">
-            <h2>FEBRUARY 26 2024</h2>
-        </div>
-        <img src="images/fdc99.jpg" class="img-detail" alt="fdc99">
-        <div class="welcome">
-            <h2>Cup of Joe and Sunkissed Lola concert to be held during PHINMA University of Pangasinan 99th FDC</h2><p>NRSCC, Lingayen, Pangasinan</p><br>
-           
-                <a href="eventdetails2.php">View Event Details →</a>    
-        </div>
-    </div>
-    <div class = "event-item">
-        <div class="date">
-            <h2>JANUARY 13 2024</h2>
-        </div>
-        <img src="images/john_weak.jpg" class="img-detail" alt="Komsayahan">
-        <div class="welcome">
-            <h2>CITEFEST 2024 — Komsayahan Ctrl + Z Rewind ft. DEXTY MN from Team Payaman and John Weak</h2><p>PHINMA University of Pangasinan Main Campus, Dagupan City, Pangasinan</p><br>
-           
-                <a href="eventdetails3.php">View Event Details →</a> 
-        </div>
-    </div>
-    </div>
+
+    <script>
+      function reply(id, name){
+        title = document.getElementById('title');
+        title.innerHTML = "Reply to " + name;
+        document.getElementById('reply_id').value = id;
+      }
+    </script>
+
         <h2>RELATED ARTICLES</h2>
      
         <div class="card">
@@ -113,21 +159,22 @@
             <p>
                 The Kaya Natin! Movement organized a seminar-workshop titled "Juan for Good Governance Caravan" at PHINMA-UPang's Banquet Hall on September 19, 2022. Led by Malabon City Mayor Antolin Oreta III and Alaminos City Councilor Carol Dizon-Sison, the event aimed to empower young leaders in championing good governance. Discussions focused on youth empowerment projects and the importance of community engagement. Attendees participated in workshops to express their visions for the future of the Philippines. The caravan intends to spread the organization's goals to more cities and provinces. (click on the article to read more)</p>
         </div>
-    </main>
+      </main>
 
 <!--FOOTER  aaaaaaaaa-->
-
-
 <footer class="grid">
-    <h1>© NEXUS COLLECTIVE 2024, ALL RIGHTS RESERVED</h1>
-    <nav>
-        <a href="eventmain_beta1.html" class="foot-link">HOME</a></li>
-        <a href="aboutus.html"  class="foot-link">ABOUT</a></li>
-        <a href="resources.html" class="foot-link">RESOURCES</a></li>
-        <a href="contacts.html" class="foot-link">CONTACTS</a></li>
-        
-    </nav>
+  <h1>© NEXUS COLLECTIVE 2024, ALL RIGHTS RESERVED</h1>
+  <nav>
+      <a href="" class="foot-link">HOME</a></li>
+      <a href="" class="foot-link">ABOUT</a></li>
+      <a href="" class="foot-link">RESOURCES</a></li>
+      <a href="" class="foot-link">CONTACTS</a></li>
+      
+  </nav>
 </footer>
+
+
+
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -135,43 +182,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
     <!--JAVASCRIPT-->
     <script>
-        $(document).scroll(function() {
-          $(".navbar").toggleClass("scroll", $(this).scrollTop() > $(".navbar").height());
-        });
-      </script>
-          <script src="eventsorting.js"></script>
-
-          <script>
-          const eventContainer = document.querySelector('.event-container');
-  const eventItems = Array.from(eventContainer.children);
-  const sortAscButton = document.getElementById('sortAsc');
-  const sortDescButton = document.getElementById('sortDesc');
-
-  sortAscButton.addEventListener('click', () => {
-    eventItems.sort((a, b) => {
-      const dateA = a.querySelector('.date h2').textContent;
-      const dateB = b.querySelector('.date h2').textContent;
-      return dateA.localeCompare(dateB);
-    });
-    eventContainer.innerHTML = ''; // clear the container
-    eventItems.forEach((item) => {
-      eventContainer.appendChild(item); // re-append the items in the sorted order
-    });
-  });
-
-  sortDescButton.addEventListener('click', () => {
-    eventItems.sort((a, b) => {
-      const dateA = a.querySelector('.date h2').textContent;
-      const dateB = b.querySelector('.date h2').textContent;
-      return dateB.localeCompare(dateA);
-    });
-    eventContainer.innerHTML = ''; // clear the container
-    eventItems.forEach((item) => {
-      eventContainer.appendChild(item); // re-append the items in the sorted order
-    });
-  });
-          </script>
-
+      $(document).scroll(function() {
+        $(".navbar").toggleClass("scroll", $(this).scrollTop() > $(".navbar").height());
+      });
+    </script>
+    <script src="eventjs.js"></script>
+   
       </div>
   </body>
 </html>

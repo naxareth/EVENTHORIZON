@@ -264,6 +264,10 @@ main .card {
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.342);
   grid-template-rows: span 4;
 }
+main .card img{
+  width: 500px;
+  height: 300px;
+}
 
 footer{
   height:100px;
@@ -308,6 +312,29 @@ footer nav a {
 
   
 
-@media screen and (max-width: 960px){
- 
+@media screen and (max-width: 960px) {
+  .navbar-brand {
+    position: relative;
+    font-size: 100%;
+    right: 20px;
+  }
+  .navbar-brand span {
+    position: relative;
+    font-size: 100%;
+  }
+  .navbar-nav {
+    position: relative;
+    padding-right: 0;
+    display: flex;
+    justify-content: center;
+  }
+  .navbar-nav .nav-item {
+    font-size: 100%;
+    position: relative;
+    left: 170px;
+  }
+  main .card img{
+    width: 150px;
+    height: 150px;
+  }
 }

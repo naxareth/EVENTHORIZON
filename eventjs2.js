@@ -4,7 +4,7 @@ const minutes = document.getElementById('minutes');
 const seconds = document.getElementById('seconds');
 
 // Set the custom event date and time
-const eventDate = '2024-05-22T02:00:00'; // format: YYYY-MM-DDTHH:MM:SS
+const eventDate = '2024-06-22T02:00:00'; // format: YYYY-MM-DDTHH:MM:SS
 
 const eventDateTime = new Date(eventDate);
 

@@ -304,6 +304,26 @@ footer nav a {
 
 
 @media screen and (max-width: 960px){
+    .navbar-brand {
+      position: relative;
+      font-size: 100%;
+      right: 20px;
+    }
+    .navbar-brand span {
+      position: relative;
+      font-size: 100%;
+    }
+    .navbar-nav {
+      position: relative;
+      padding-right: 0;
+      display: flex;
+      justify-content: center;
+    }
+    .navbar-nav .nav-item {
+      font-size: 100%;
+      position: relative;
+      left: 170px;
+    }
   header .events-section {
       grid-column: 3 / span 8;
       text-align: center;
@@ -318,6 +338,13 @@ footer nav a {
   main .welcome {
       grid-column: 3 / span 8;
       text-align: center;
+  }
+  footer h1 {
+    font-size: 80%;
+  }
+  footer .foot-link{
+    grid-column: 2 / span 10;
+    font-size: 80%;
   }
 
 }
