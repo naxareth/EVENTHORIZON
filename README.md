@@ -1,2 +1,2 @@
 # EVENTHORIZON
-A school event tracker. 1st year 2nd semester project.
+A school event tracker website. 1st year 2nd semester project.
